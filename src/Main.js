@@ -3,6 +3,7 @@ import './Main.css';
 
 const Main = () => {
   const [number, setNumber] = useState(0);
+  const [collatzArray, setcollatzArray] = useState([]);
 
   const numberHandler = (e) => {
     const { value } = e.target;
@@ -11,8 +12,22 @@ const Main = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(number);
+    collatz_calculations (number)
   };
+
+  function collatz_calculations (x) {
+    var tempArray = [parseInt(x)];
+    while (x != 1) {
+      if (x % 2) {
+        x = x*3+1
+        tempArray.push(x)
+      } else {
+        x = x/2
+        tempArray.push(x);
+      }
+    }
+    console.log(tempArray)
+  }
 
   return (
     <div className='Main'>
