@@ -33,6 +33,10 @@ const Main = () => {
     } else {setIsValidNumber(false)}
   }
 
+  const resetHandler = () => {
+    window.location.reload()
+  }
+
   return (
     <div className='Main'>
       <h1>Number: {number}</h1>
@@ -48,6 +52,7 @@ const Main = () => {
         </div>
         <button id='submitButton' type="submit">Show Collatz's row</button>
       </form>
+      <button onClick={resetHandler}>Reset</button>
       { isValidNumber ? (
           collatzArray.map( i => {
             return (
