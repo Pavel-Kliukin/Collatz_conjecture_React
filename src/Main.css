@@ -3,3 +3,56 @@
   color: white;
   min-height: 98vh;
 }
+
+.mainBox {
+  margin-left: 1rem;
+  padding-top: 1rem;
+}
+
+form {
+  margin-top: 2rem;
+}
+
+input {
+  width: 100px;
+  margin-left: 1rem;
+  height: 1.7rem;
+  border-radius: 5px;
+  padding-left: 0.5rem;
+}
+
+.buttonsBox {
+  display: flex;
+}
+
+button {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  height: 2rem;
+  width: fit-content;
+  background-color: #333;
+  border: solid rgb(91, 234, 120);
+  border-width: 1px;
+  border-radius: 5px;
+  color: rgb(91, 234, 120);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submitButton {
+  margin-right: 1rem;
+  width: 150px;
+}
+
+#submitButton:hover {
+  border-width: 2px;
+}
+
+#resetButton {
+  width: 50px;
+}
+
+#resetButton:hover {
+  border-width: 2px;
+}

@@ -39,30 +39,34 @@ const Main = () => {
 
   return (
     <div className='Main'>
-      <h1>Number: {number}</h1>
-      <form onSubmit={submitHandler}>
-        <div className="numberInput">
-          <label htmlFor="number">Enter a positive integer</label>
-          <input
-            type="number"
-            id="number"
-            onChange={numberHandler}
-            required
-          />
-        </div>
-        <button id='submitButton' type="submit">Show Collatz's row</button>
-      </form>
-      <button onClick={resetHandler}>Reset</button>
-      { isValidNumber ? (
-          collatzArray.map( i => {
-            return (
-              <div key={i}>{i}, </div>
-            ); 
-          })
-        ) : (
-          <div>The number you entered is not valid</div>
-        )
-      }
+      <div className='mainBox'>
+        <h1>Number: {number}</h1>
+        <form onSubmit={submitHandler}>
+          <div className="numberInput">
+            <label htmlFor="number">Enter a positive integer</label>
+            <input
+              type="number"
+              id="number"
+              onChange={numberHandler}
+              required
+            />
+          </div>
+          <div className='buttonsBox'>
+            <button className='buttons' id='submitButton' type="submit">Show Collatz's row</button>
+            <button className='buttons' id='resetButton' onClick={resetHandler}>Reset</button>
+          </div>
+        </form>
+        { isValidNumber ? (
+            collatzArray.map( i => {
+              return (
+                <div key={i} className='numbers'>{i} </div>
+              ); 
+            })
+          ) : (
+            <div>The number you entered is not valid</div>
+          )
+        }
+      </div>
     </div>
   );
 
