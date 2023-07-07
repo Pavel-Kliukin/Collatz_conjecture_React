@@ -63,7 +63,7 @@ const Main = () => {
               ); 
             })
           ) : (
-            <div>The number you entered is not valid</div>
+            <h3 className='notValid'>The number you entered is not valid</h3>
           )
         }
       </div>

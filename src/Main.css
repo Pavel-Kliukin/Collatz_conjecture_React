@@ -56,3 +56,27 @@ button {
 #resetButton:hover {
   border-width: 2px;
 }
+
+.numbers {
+  width: 150px;
+  margin: 0.4rem 0;
+}
+
+.numbers:nth-child(even) {
+  background: #4d4c4c;
+}
+
+.notValid {
+  animation: blur 2.5s ease;
+  animation-delay: -1.5s;
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(80px);
+    color: rgb(244, 239, 239);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
