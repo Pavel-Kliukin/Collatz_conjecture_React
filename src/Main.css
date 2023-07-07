@@ -59,7 +59,7 @@ button {
 
 .numbers {
   width: 150px;
-  margin: 0.4rem 0;
+  margin-top: 0.8rem;
 }
 
 .numbers:nth-child(even) {
