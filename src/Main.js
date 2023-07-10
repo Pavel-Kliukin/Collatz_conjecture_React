@@ -6,17 +6,20 @@ const Main = () => {
   const [isValidNumber, setIsValidNumber] = useState(true);
   const [collatzArray, setCollatzArray] = useState([]);
 
+  // Gets the number from input and makes it integer
   const numberHandler = (e) => {
     const { value } = e.target;
     setNumber(parseInt(value))
   };
 
+  // Starts the calculation of Collatz's row when user pressed "submit" button
   const submitHandler = (e) => {
     e.preventDefault();
     setIsValidNumber(true)
     collatz_calculations (number)
   };
 
+  // Calculates the Collatz's row
   function collatz_calculations (x) {
     if (Number.isInteger(x) && x > 0) {
       var tempArray = [x];
@@ -33,34 +36,34 @@ const Main = () => {
     } else {setIsValidNumber(false)}
   }
 
+  // Reloads the page when user pressed "reset" button
   const resetHandler = () => {
     window.location.reload()
   }
 
-  const outputArray = [...collatzArray]
-  
+  // Makes the fancy output of Collatz's row with blur and delay
   useEffect ( () => {
 
-    outputArray.forEach( (element, index) => {
-      const divNumber = document.getElementById(element)
+    collatzArray.forEach( (element, index) => {
+      const outputNumbers = document.getElementById(element)
+      outputNumbers.classList.remove('blurisation') // removes class from previous output
       setTimeout ( () => {
-        divNumber.style.display = 'block'
-        divNumber.classList.add('blurisation')
+        outputNumbers.classList.add('blurisation')
       }, index*100)
     });
 
-  }, [outputArray])
+  }, [collatzArray])
 
   return (
     <div className='Main'>
       <div className='mainBox'>
         <h1>Number: {number}</h1>
         <form onSubmit={submitHandler}>
-          <div className="numberInput">
-            <label htmlFor="number">Enter a positive integer</label>
+          <div className="inputBox">
+            <label htmlFor="inputNumber">Enter a positive integer</label>
             <input
               type="number"
-              id="number"
+              id="inputNumber"
               onChange={numberHandler}
               required
             />
@@ -73,7 +76,7 @@ const Main = () => {
         { isValidNumber ? (
             collatzArray.map( i => {
               return (
-                <div key={i} id={i} className='numbers'>{i} </div>
+                <div key={i} id={i} className='outputNumbers'>{i} </div>
               ); 
             })
           ) : (

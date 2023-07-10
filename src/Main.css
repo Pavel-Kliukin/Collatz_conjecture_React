@@ -57,17 +57,18 @@ button {
   border-width: 2px;
 }
 
-.numbers {
+.outputNumbers {
   width: 150px;
   margin-top: 0.8rem;
   display: none;
 }
 
-.numbers:nth-child(even) {
+.outputNumbers:nth-child(even) {
   background: #4d4c4c;
 }
 
 .blurisation {
+  display: block;
   animation: blur 2.2s ease;
   animation-delay: -1.5s;
 }
