@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Main.css';
 
 const Main = () => {
@@ -37,6 +37,20 @@ const Main = () => {
     window.location.reload()
   }
 
+  const outputArray = [...collatzArray]
+  
+  useEffect ( () => {
+
+    outputArray.forEach( (element, index) => {
+      const divNumber = document.getElementById(element)
+      setTimeout ( () => {
+        divNumber.style.display = 'block'
+        divNumber.classList.add('blurisation')
+      }, index*100)
+    });
+
+  }, [outputArray])
+
   return (
     <div className='Main'>
       <div className='mainBox'>
@@ -59,11 +73,11 @@ const Main = () => {
         { isValidNumber ? (
             collatzArray.map( i => {
               return (
-                <div key={i} className='numbers'>{i} </div>
+                <div key={i} id={i} className='numbers'>{i} </div>
               ); 
             })
           ) : (
-            <h3 className='notValid'>The number you entered is not valid</h3>
+            <h3 className='blurisation'>The number you entered is not valid</h3>
           )
         }
       </div>
