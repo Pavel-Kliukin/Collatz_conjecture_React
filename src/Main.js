@@ -5,6 +5,7 @@ const Main = () => {
   const [number, setNumber] = useState(0);
   const [isValidNumber, setIsValidNumber] = useState(true);
   const [collatzArray, setCollatzArray] = useState([]);
+  const [trigger, setTrigger] = useState([true])
 
   // Gets the number from input and makes it integer
   const numberHandler = (e) => {
@@ -17,23 +18,26 @@ const Main = () => {
     e.preventDefault();
     setIsValidNumber(true)
     collatz_calculations (number)
+    trigger ? setTrigger(false) : setTrigger(true)
   };
 
   // Calculates the Collatz's row
   function collatz_calculations (x) {
-    if (Number.isInteger(x) && x > 0) {
+    if (x > 0) { // if x > 0 then make calculations
       var tempArray = [x];
       while (x !== 1) {
         if (x % 2) {
           x = x*3+1
           tempArray.push(x)
-        } else {
+        } else { 
           x = x/2
           tempArray.push(x);
         }
       }
       setCollatzArray(tempArray)
-    } else {setIsValidNumber(false)}
+    } else { // if x <= 0 then it's not valid
+      setIsValidNumber(false)
+    }
   }
 
   // Reloads the page when user pressed "reset" button
@@ -42,15 +46,28 @@ const Main = () => {
   }
 
   // Makes the fancy output of Collatz's row with blur and delay
-  useEffect ( () => {
 
-    collatzArray.forEach( (element, index) => {
-      const outputNumbers = document.getElementById(element)
-      outputNumbers.classList.remove('blurisation') // removes class from previous output
-      setTimeout ( () => {
-        outputNumbers.classList.add('blurisation')
-      }, index*100)
-    });
+  useEffect ( () => {
+    console.log('useEffect for notValid and trigger');
+    const notValid = document.getElementById('notValid')
+    if (notValid) {
+      console.log('notValid', notValid);
+      notValid.classList.remove('blurisation')
+      setTimeout(() => {
+        notValid.classList.add('blurisation')
+      }, 200);
+    }
+  }, [isValidNumber, trigger])
+
+  useEffect ( () => {
+      console.log('useEffect for collatzArray');
+      collatzArray.forEach( (element, index) => {
+        const outputNumbers = document.getElementById(element)
+        outputNumbers.classList.remove('blurisation') // removes class from previous output
+        setTimeout ( () => {
+          outputNumbers.classList.add('blurisation')
+        }, index*100)
+      });
 
   }, [collatzArray])
 
@@ -80,7 +97,7 @@ const Main = () => {
               ); 
             })
           ) : (
-            <h3 className='blurisation'>The number you entered is not valid</h3>
+            <h3 id='notValid' className='notValid'>The number you entered is not valid</h3>
           )
         }
       </div>

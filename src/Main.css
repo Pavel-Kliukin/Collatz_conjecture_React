@@ -67,6 +67,10 @@ button {
   background: #4d4c4c;
 }
 
+.notValid {
+  display: none;
+}
+
 .blurisation {
   display: block;
   animation: blur 2.2s ease;
