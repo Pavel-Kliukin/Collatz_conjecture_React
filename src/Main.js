@@ -3,30 +3,26 @@ import './Main.css';
 
 const Main = () => {
   const [number, setNumber] = useState(0);
+  const [prevNumber, setPrevNumber] = useState(0);
   const [isValidNumber, setIsValidNumber] = useState(true);
   const [collatzArray, setCollatzArray] = useState([]);
   const [trigger, setTrigger] = useState(true)
-  const [trigger2, setTrigger2] = useState(true);
-
-  let prevNumber
+  const [notTheSameNumber, setNotTheSameNumber] = useState(true);
   
   // Gets the number from input and makes it integer
   const numberHandler = (e) => {
     const { value } = e.target;
     setNumber(parseInt(value));
-    (prevNumber == number) ? setTrigger2(false) : setTrigger2(true);
-    console.log('numH prevNumber=',prevNumber, ' Number=',number);
-    console.log('numH trigger 2 = ',trigger2);
   };
   
   // Starts the calculation of Collatz's row when user pressed "submit" button
   const submitHandler = (e) => {
     e.preventDefault();
-    setIsValidNumber(true)
-    prevNumber = number
+    setIsValidNumber(true);
+    (prevNumber !== number) ? setNotTheSameNumber(true) : setNotTheSameNumber(false);
+    setPrevNumber(number);
     collatz_calculations (number)
     trigger ? setTrigger(false) : setTrigger(true)
-    console.log('subH trigger 2 = ',trigger2);
   };
   
   
@@ -44,7 +40,7 @@ const Main = () => {
         }
       }
       setCollatzArray(tempArray)
-    } else { // if x <= 0 then it's not valid
+    } else { // if x <= 0 then inputed number is not valid
       setIsValidNumber(false)
     }
   }
@@ -55,14 +51,10 @@ const Main = () => {
   }
 
   // Makes the fancy output of Collatz's row with blur and delay
-
-
   useEffect ( () => {
 
-    console.log('useEffect prevNumber=',prevNumber, ' Number=',number);
-
     if (isValidNumber) {
-      if (trigger2) {
+      if (notTheSameNumber) {
         collatzArray.forEach( (element, index) => {
           const outputNumbers = document.getElementById(element)
           if (outputNumbers) {
@@ -76,7 +68,6 @@ const Main = () => {
     } else {
       const notValid = document.getElementById('notValid')
       if (notValid) {
-        console.log('Inside useEffect isValid notValid');
         notValid.classList.remove('blurisation')
         setTimeout(() => {
           notValid.classList.add('blurisation')
