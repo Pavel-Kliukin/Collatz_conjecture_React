@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './Main.css';
 
 const Main = () => {
-  const [number, setNumber] = useState(0);
-  const [prevNumber, setPrevNumber] = useState(0);
+  const [number, setNumber] = useState(0); // number that user enters
+  const [prevNumber, setPrevNumber] = useState(0); // previously entered number
   const [isValidNumber, setIsValidNumber] = useState(true);
   const [collatzArray, setCollatzArray] = useState([]);
-  const [trigger, setTrigger] = useState(true)
-  const [notTheSameNumber, setNotTheSameNumber] = useState(true);
+  const [trigger, setTrigger] = useState(true) // it triggers the useEffect when "submit" button pressed
+  const [notTheSameNumber, setNotTheSameNumber] = useState(true); // it says are number and prevNumer equal
   
   // Gets the number from input and makes it integer
   const numberHandler = (e) => {
@@ -54,7 +54,7 @@ const Main = () => {
   useEffect ( () => {
 
     if (isValidNumber) {
-      if (notTheSameNumber) {
+      if (notTheSameNumber) { // This condition prevents the re-render of the same number
         collatzArray.forEach( (element, index) => {
           const outputNumbers = document.getElementById(element)
           if (outputNumbers) {
@@ -75,7 +75,7 @@ const Main = () => {
       }
     }
 
-  }, [collatzArray, trigger])
+  }, [trigger, collatzArray, isValidNumber, notTheSameNumber])
 
   return (
     <div className='Main'>
