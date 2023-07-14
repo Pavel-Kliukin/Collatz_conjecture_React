@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Main.css';
+import style from './Main.module.css';
 
 const Main = () => {
   const [number, setNumber] = useState(0); // number that user enters
@@ -58,9 +58,9 @@ const Main = () => {
         collatzArray.forEach( (element, index) => {
           const outputNumbers = document.getElementById(element)
           if (outputNumbers) {
-            outputNumbers.classList.remove('blurisation') // removes class from previous output
+            outputNumbers.classList.remove(style.blurisation) // removes class from previous output
             setTimeout ( () => {
-              outputNumbers.classList.add('blurisation')
+              outputNumbers.classList.add(style.blurisation)
             }, index*100)
           }
         });
@@ -68,9 +68,9 @@ const Main = () => {
     } else {
       const notValid = document.getElementById('notValid')
       if (notValid) {
-        notValid.classList.remove('blurisation')
+        notValid.classList.remove(style.blurisation)
         setTimeout(() => {
-          notValid.classList.add('blurisation')
+          notValid.classList.add(style.blurisation)
         }, 200);
       }
     }
@@ -78,11 +78,11 @@ const Main = () => {
   }, [trigger, collatzArray, isValidNumber, notTheSameNumber])
 
   return (
-    <div className='Main'>
-      <div className='mainBox'>
+    <div className={style.Main}>
+      <div className={style.mainBox}>
         <h1>Number: {number}</h1>
         <form onSubmit={submitHandler}>
-          <div className="inputBox">
+          <div className={style.inputBox}>
             <label htmlFor="inputNumber">Enter a positive integer</label>
             <input
               type="number"
@@ -91,19 +91,19 @@ const Main = () => {
               required
             />
           </div>
-          <div className='buttonsBox'>
-            <button className='buttons' id='submitButton' type="submit">Show Collatz's row</button>
-            <button className='buttons' id='resetButton' onClick={resetHandler}>Reset</button>
+          <div className={style.buttonsBox}>
+            <button className={style.buttons} id='submitButton' type="submit">Show Collatz's row</button>
+            <button className={style.buttons} id='resetButton' onClick={resetHandler}>Reset</button>
           </div>
         </form>
         { isValidNumber ? (
             collatzArray.map( i => {
               return (
-                <div key={i} id={i} className='outputNumbers'>{i} </div>
+                <div key={i} id={i} className={style.outputNumbers}>{i} </div>
               ); 
             })
           ) : (
-            <h3 id='notValid' className='notValid'>The number you entered is not valid</h3>
+            <h3 id='notValid' className={style.notValid}>The number you entered is not valid</h3>
           )
         }
       </div>

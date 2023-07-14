@@ -1,11 +1,11 @@
-import './App.css';
+import style from './App.module.css';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
 
 function App() {
   return (
-    <div className="App">
+    <div className={style.App}>
       <Header />
       <Main />
       <Footer />
