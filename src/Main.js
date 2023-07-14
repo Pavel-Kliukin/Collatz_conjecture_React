@@ -66,7 +66,7 @@ const Main = () => {
         });
       }
     } else {
-      const notValid = document.getElementById('notValid')
+      const notValid = document.getElementById(style.notValid)
       if (notValid) {
         notValid.classList.remove(style.blurisation)
         setTimeout(() => {
@@ -83,17 +83,17 @@ const Main = () => {
         <h1>Number: {number}</h1>
         <form onSubmit={submitHandler}>
           <div className={style.inputBox}>
-            <label htmlFor="inputNumber">Enter a positive integer</label>
+            <label htmlFor={style.inputNumber}>Enter a positive integer</label>
             <input
               type="number"
-              id="inputNumber"
+              id={style.inputNumber}
               onChange={numberHandler}
               required
             />
           </div>
           <div className={style.buttonsBox}>
-            <button className={style.buttons} id='submitButton' type="submit">Show Collatz's row</button>
-            <button className={style.buttons} id='resetButton' onClick={resetHandler}>Reset</button>
+            <button id={style.submitButton} type="submit">Show Collatz's row</button>
+            <button id={style.resetButton} onClick={resetHandler}>Reset</button>
           </div>
         </form>
         { isValidNumber ? (
@@ -103,7 +103,7 @@ const Main = () => {
               ); 
             })
           ) : (
-            <h3 id='notValid' className={style.notValid}>The number you entered is not valid</h3>
+            <h3 id={style.notValid} className={style.notValid}>The number you entered is not valid</h3>
           )
         }
       </div>
