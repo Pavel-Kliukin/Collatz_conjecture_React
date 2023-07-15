@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import style from './Main.module.css';
+import style from './Row.module.css';
 
-const Main = () => {
+const Row = () => {
   const [number, setNumber] = useState(0); // number that user enters
   const [prevNumber, setPrevNumber] = useState(0); // previously entered number
   const [isValidNumber, setIsValidNumber] = useState(true);
@@ -78,8 +78,8 @@ const Main = () => {
   }, [trigger, collatzArray, isValidNumber, notTheSameNumber])
 
   return (
-    <div className={style.Main}>
-      <div className={style.mainBox}>
+    <div className={style.Row}>
+      <div className={style.rowBox}>
         <h1>Number: {number}</h1>
         <form onSubmit={submitHandler}>
           <div className={style.inputBox}>
@@ -112,4 +112,4 @@ const Main = () => {
 
 };
 
-export default Main;
+export default Row;

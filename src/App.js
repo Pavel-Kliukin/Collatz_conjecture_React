@@ -1,13 +1,17 @@
 import style from './App.module.css';
 import Header from './Header';
 import Footer from './Footer';
-import Main from './Main';
+import Row from './Row';
+import About from './About';
 
 function App() {
   return (
     <div className={style.App}>
       <Header />
-      <Main />
+      <div className={style.main}>
+        <Row />
+        <About />
+      </div>
       <Footer />
     </div>
   );

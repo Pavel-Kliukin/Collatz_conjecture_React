@@ -1,10 +1,10 @@
-.Main {
+.Row {
   background-color: black;
   color: white;
   min-height: 98vh;
 }
 
-.mainBox {
+.rowBox {
   margin-left: 1rem;
   padding-top: 1rem;
 }
