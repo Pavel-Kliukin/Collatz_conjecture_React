@@ -2,13 +2,24 @@ import React from 'react';
 import style from './About.module.css';
 
 const About = () => {
+
+  const readMoreHandler = () => {
+    const aboutText = document.getElementById(style.About)
+    aboutText.classList.add(style.aboutShowAll)
+    const readMoreButton = document.getElementById(style.readMoreButton)
+    readMoreButton.classList.add(style.hide)
+  }
+
   return (
-    <div className={style.About}>
+    <div id={style.About} className={style.About}>
       <div className={style.intro}>
         <p>Take a number, any number.</p>
         <p>If it’s even, halve it. If it’s odd, multiply by 3 and add 1.</p>
         <p>Repeat.</p>
-        <p>Do all starting numbers lead to 1?</p>
+        <div className={style.paragraphAndButton}>
+          <p>Do all starting numbers lead to 1?</p>
+          <button id={style.readMoreButton} onClick={readMoreHandler}>Read more</button>
+        </div>
       </div>
       <h2 className={style.h2}>About Collatz Conjecture</h2>
       <div className={style.aboutParagraphs}>
@@ -25,7 +36,6 @@ const About = () => {
         <p>Intuition might suggest that the number you start with affects the number you end up with. Maybe some numbers eventually spiral all the way down to 1. Maybe others go marching off to infinity.</p>
         <p>But Collatz predicted that’s not the case. He conjectured that if you start with a positive whole number and run this process long enough, all starting values will lead to 1. And once you hit 1, the rules of the Collatz conjecture confine you to a loop: 1, 4, 2, 1, 4, 2, 1, on and on forever.</p>
         <p>Over the years, many problem solvers have been drawn to the beguiling simplicity of the Collatz conjecture, or the “3x + 1 problem,” as it’s also known. Mathematicians have tested quintillions of examples (that’s 18 zeros) without finding a single exception to Collatz’s prediction. You can even try a few examples yourself with the “Collatz calculator” of this site. The internet is awash in unfounded amateur proofs that claim to have resolved the problem one way or the other.</p>
-        <p></p>
       </div>
 
     </div>

@@ -40,21 +40,17 @@ button {
   align-items: center;
 }
 
+button:hover {
+  border-width: 2px;
+}
+
 #submitButton {
   margin-right: 1rem;
   width: 150px;
 }
 
-#submitButton:hover {
-  border-width: 2px;
-}
-
 #resetButton {
   width: 50px;
-}
-
-#resetButton:hover {
-  border-width: 2px;
 }
 
 .outputNumbers {
