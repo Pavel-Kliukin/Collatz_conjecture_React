@@ -7,8 +7,16 @@
 }
 
 #collatzImage {
-  width: 250px;
+  width: 300px;
   position: absolute;
+  transition: 0.5s ease;
+}
+
+#collatzImage:hover {
+  width: 400px;
+  top: 0px;
+  border: solid 2px rgb(91, 234, 120);
+  border-radius: 5px;
 }
 
 .h1 {
