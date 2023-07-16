@@ -2,12 +2,18 @@
   background-color: black;
   color: white;
   display: flex;
+  align-items: center;
+  width:100%;
 }
 
 #collatzImage {
   width: 250px;
+  position: absolute;
 }
 
 .h1 {
+  margin: 2rem 0;
   font-size: 4rem;
+  flex: 1;
+  text-align: center;
 }
