@@ -10,6 +10,13 @@ const About = () => {
     readMoreButton.classList.add(style.hide)
   }
 
+  const upHandler = () => {
+    const aboutText = document.getElementById(style.About)
+    aboutText.classList.remove(style.aboutShowAll)
+    const readMoreButton = document.getElementById(style.readMoreButton)
+    readMoreButton.classList.remove(style.hide)
+  }
+
   return (
     <div id={style.About} className={style.About}>
       <div className={style.intro}>
@@ -36,6 +43,10 @@ const About = () => {
         <p>Intuition might suggest that the number you start with affects the number you end up with. Maybe some numbers eventually spiral all the way down to 1. Maybe others go marching off to infinity.</p>
         <p>But Collatz predicted that’s not the case. He conjectured that if you start with a positive whole number and run this process long enough, all starting values will lead to 1. And once you hit 1, the rules of the Collatz conjecture confine you to a loop: 1, 4, 2, 1, 4, 2, 1, on and on forever.</p>
         <p>Over the years, many problem solvers have been drawn to the beguiling simplicity of the Collatz conjecture, or the “3x + 1 problem,” as it’s also known. Mathematicians have tested quintillions of examples (that’s 18 zeros) without finding a single exception to Collatz’s prediction. You can even try a few examples yourself with the “Collatz calculator” of this site. The internet is awash in unfounded amateur proofs that claim to have resolved the problem one way or the other.</p>
+        <div className={style.linkAndUpButton}>
+          <a className={style.link} href='https://www.quantamagazine.org/mathematician-proves-huge-result-on-dangerous-problem-20191211/' target="_blank" rel="noopener noreferrer">Learn more from this article...</a>
+          <button id={style.upButton} onClick={upHandler}>&uarr;</button>
+        </div>
       </div>
 
     </div>
