@@ -9,7 +9,6 @@
 #collatzImage {
   width: 300px;
   position: absolute;
-  transition: 0.5s ease;
 }
 
 #collatzImage:hover {
@@ -24,4 +23,28 @@
   font-size: 4rem;
   flex: 1;
   text-align: center;
+}
+
+#modal {
+  background-color: black;
+  border: solid 2px rgb(91, 234, 120);
+  border-radius: 5px;
+  position: relative;
+  position: absolute;
+  top: 0px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.closeButton {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -5px;
+  right: 10px
+
+}
+
+.hide {
+  display: none;
 }
