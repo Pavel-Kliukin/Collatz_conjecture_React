@@ -32,7 +32,7 @@
   position: relative;
   position: absolute;
   top: 0px;
-  width: fit-content;
+  width: min-content;
   height: fit-content;
 }
 
@@ -42,7 +42,17 @@
   position: absolute;
   top: -5px;
   right: 10px
+}
 
+.modalText {
+  margin: 1rem;
+  letter-spacing: 1px;
+  line-height: 1.5rem;
+}
+
+.link {
+  text-decoration: none;
+  color: rgb(91, 234, 120);
 }
 
 .hide {
