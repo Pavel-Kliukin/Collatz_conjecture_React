@@ -6,6 +6,10 @@
   width:100%;
 }
 
+.logoAndTitle {
+  display: flex;
+}
+
 #collatzImage {
   width: 300px;
   position: absolute;
@@ -57,4 +61,24 @@
 
 .hide {
   display: none;
+}
+
+@media (max-width: 1140px) {
+  #collatzImage {
+    position: relative;
+  }
+}
+
+@media (max-width: 915px) {
+  .logoAndTitle {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+  }
+
+  #collatzImage {
+    width: 400px;
+  }
+
 }

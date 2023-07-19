@@ -16,8 +16,10 @@ const Header = () => {
 
   return (
     <div className={style.Header}>
-      <img onClick={logoHandler} id={style.collatzImage} className={style.headerImg} src={collatzImage} alt="collatz_by_K.A.Rousan"/>
-      <h1 className={style.h1}>Collatz Conjecture</h1>
+      <div className={style.logoAndTitle}>
+        <img onClick={logoHandler} id={style.collatzImage} className={style.headerImg} src={collatzImage} alt="collatz_by_K.A.Rousan"/>
+        <h1 className={style.h1}>Collatz Conjecture</h1>
+      </div>
       <div id={style.modal} className={style.hide}>
         <button onClick={closeButtonHandler} className={style.closeButton}>X</button>
         <img className={style.modalImg} src={collatzImage} alt="collatz_by_K.A.Rousan"/>

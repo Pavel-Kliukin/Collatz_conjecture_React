@@ -22,3 +22,9 @@
   display: flex;
   flex: 1;
 }
+
+@media (max-width: 915px) {
+  .main {
+    flex-direction: column-reverse;
+  }
+}
