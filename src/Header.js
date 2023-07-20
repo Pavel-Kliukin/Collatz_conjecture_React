@@ -24,7 +24,7 @@ const Header = () => {
         <button onClick={closeButtonHandler} className={style.closeButton}>X</button>
         <img className={style.modalImg} src={collatzImage} alt="collatz_by_K.A.Rousan"/>
         <p className={style.modalText}>This picture shows the computer visualization of the Collatz series for a certain amount of different numbers. Each line shows one row, and all rows eventually converge to "1".</p>
-        <p className={style.modalText}>You can see how this image was drawn and look at the code of the program that draw it by clicking <a className={style.link} href='https://editor.p5js.org/K.A.Rousan/sketches/9G7kePHyd' target="_blank" rel="noopener noreferrer">this link</a>.</p>
+        <p className={style.modalText}>You can see how this image was drawn and look at the code of the program that draw it by clicking <a className={style.link} href='https://editor.p5js.org/K.A.Rousan/sketches/9G7kePHyd' target="_blank" rel="noopener noreferrer">here</a>.</p>
       </div>
     </div>
   );
