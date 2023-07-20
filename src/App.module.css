@@ -26,5 +26,7 @@
 @media (max-width: 915px) {
   .main {
     flex-direction: column-reverse;
+    justify-content: start;
+    margin-top: 2rem;
   }
 }

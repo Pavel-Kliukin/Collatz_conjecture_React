@@ -9,7 +9,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: 1s ease;
 }
 
 .aboutShowAll{
@@ -68,4 +67,29 @@
 
 .hide {
   display: none;
+}
+
+@media (max-width: 570px) {
+  .About {
+    max-height: 210px;
+  }
+
+  .aboutShowAll{
+    max-height: fit-content;
+  }
+}
+
+@media (max-width: 570px) {
+  .About {
+    max-height: 250px;
+  }
+
+  .aboutShowAll{
+    max-height: fit-content;
+  }
+
+  .paragraphAndButton {
+    display: flex;
+    flex-direction: column;
+  }
 }
