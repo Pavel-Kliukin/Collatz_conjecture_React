@@ -24,6 +24,11 @@
 }
 
 @media (max-width: 915px) {
+
+  .App {
+    width: 100vw;
+  }
+
   .main {
     flex-direction: column-reverse;
     justify-content: start;

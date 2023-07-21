@@ -90,3 +90,9 @@
     
   }
 }
+
+@media (max-width: 500px) {
+  #collatzImage:hover {
+    border: none;
+  }
+}
